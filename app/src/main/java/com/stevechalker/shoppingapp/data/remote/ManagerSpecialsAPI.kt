@@ -5,6 +5,6 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface ManagerSpecialsAPI {
-    @GET("/code-exercise-android/master/backup")
-    fun getManagerSpecials(): Single<List<ManagersSpecialResponse>>
+    @GET("code-exercise-android/master/backup")
+    fun getManagerSpecials(): Single<ManagersSpecialResponse>
 }

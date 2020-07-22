@@ -9,7 +9,7 @@ data class ManagerSpecial(
     val imageUrl: String,
     val width: Int,
     val height: Int,
-    val displayName: String,
-    val originalPrice: String,
+    val display_name: String,
+    val original_price: String,
     val price: String
 )

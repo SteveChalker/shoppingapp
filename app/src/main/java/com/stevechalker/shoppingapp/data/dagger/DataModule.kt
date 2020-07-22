@@ -14,7 +14,7 @@ class DataModule {
     @Provides
     @Singleton
     fun providesRetrofit(client: OkHttpClient): Retrofit =
-        Retrofit.Builder().baseUrl("https://raw.githubusercontent.com/Swiftly-Systems")
+        Retrofit.Builder().baseUrl("https://raw.githubusercontent.com/Swiftly-Systems/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
