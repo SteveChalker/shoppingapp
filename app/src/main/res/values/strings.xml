@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ShoppingApp</string>
+    <string name="item_image_content_description">Item Image</string>
+    <string name="manager_s_specials">Manager\'s Specials</string>
 </resources>
