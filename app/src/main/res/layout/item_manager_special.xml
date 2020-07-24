@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="3dp">
+    android:elevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/order_item_menu_layout"
@@ -13,23 +13,26 @@
 
         <ImageView
             android:id="@+id/item_imageView"
-            android:layout_width="0dp"
+            android:layout_width="64dp"
             android:layout_height="0dp"
             android:scaleType="fitCenter"
             android:contentDescription="@string/item_image_content_description"
+            android:layout_margin="@dimen/item_image_margin"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/item_name_textView"
-            app:layout_constraintEnd_toStartOf="@id/original_price_textView"
+            app:layout_constraintBottom_toTopOf="@id/item_name_textView"
             tools:src="@drawable/placeholder_image"/>
 
         <TextView
             android:id="@+id/original_price_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/price_text_size"
             tools:text="$2.00"
-            android:textStyle=""
+            android:textStyle="bold"
+            android:textColor="@color/origin_price_text"
+            android:layout_marginEnd="@dimen/view_spacing_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/discounted_price_textView"/>
 
@@ -37,7 +40,11 @@
             android:id="@+id/discounted_price_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/discounted_price_text"
+            android:textSize="@dimen/price_text_size"
+            android:textStyle="bold"
             tools:text="$1.00"
+            android:layout_marginEnd="@dimen/view_spacing_margin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -46,7 +53,9 @@
             android:id="@+id/item_name_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/item_name_text"
             tools:text="Noodle Dish with Roasted Black Bean Sauce"
+            android:layout_marginBottom="@dimen/view_spacing_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
