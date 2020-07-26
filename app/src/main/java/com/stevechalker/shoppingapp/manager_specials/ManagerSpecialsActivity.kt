@@ -3,7 +3,8 @@ package com.stevechalker.shoppingapp.manager_specials
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import com.airbnb.epoxy.EpoxyRecyclerView
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.stevechalker.shoppingapp.ManagerSpecialsApplication
 import com.stevechalker.shoppingapp.R
 import javax.inject.Inject
@@ -20,10 +21,10 @@ class ManagerSpecialsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_manager_specials)
 
         val managerSpecialsRecyclerView =
-            findViewById<EpoxyRecyclerView>(R.id.manager_Specials_recyclerView)
+            findViewById<RecyclerView>(R.id.manager_Specials_recyclerView)
+        managerSpecialsRecyclerView.layoutManager = FlexboxLayoutManager(this)
 
         viewModel.observeManagerSpecials().observe(this, Observer { managerSpecialResponse ->
-
             val managerSpecialsList = managerSpecialResponse.managerSpecials.map {
                 viewCalculator.calculateManagerSpecialViewSize(
                     this,
@@ -32,16 +33,7 @@ class ManagerSpecialsActivity : AppCompatActivity() {
                 )
             }
 
-            managerSpecialsRecyclerView.apply {
-                withModels {
-                    managerSpecialsList.map {
-                        managerSpecials {
-                            id(it.display_name)
-                            managerSpecial(it)
-                        }
-                    }
-                }
-            }
+            managerSpecialsRecyclerView.adapter = ManagerSpecialsAdapter(managerSpecialsList)
         })
     }
 
