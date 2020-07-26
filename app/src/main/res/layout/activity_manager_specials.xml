@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    tools:context=".ManagerSpecials.ManagerSpecialsActivity">
+    tools:context=".manager_specials.ManagerSpecialsActivity">
 
     <TextView
         android:id="@+id/manager_specials_textView"
@@ -32,7 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="1" />
+        app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

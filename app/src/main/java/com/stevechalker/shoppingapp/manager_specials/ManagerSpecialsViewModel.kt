@@ -1,8 +1,8 @@
-package com.stevechalker.shoppingapp.ManagerSpecials
+package com.stevechalker.shoppingapp.manager_specials
 
 import androidx.lifecycle.MutableLiveData
 import com.stevechalker.shoppingapp.data.ManagerSpecialsRepository
-import com.stevechalker.shoppingapp.data.model.ManagerSpecial
+import com.stevechalker.shoppingapp.data.model.ManagersSpecialResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -12,8 +12,8 @@ class ManagerSpecialsViewModel @Inject constructor(
     private val repository: ManagerSpecialsRepository
 ) {
     private var disposable: Disposable? = null
-    private val managerSpecialsObservable: MutableLiveData<List<ManagerSpecial>> by lazy {
-        MutableLiveData<List<ManagerSpecial>>()
+    private val managerSpecialsObservable: MutableLiveData<ManagersSpecialResponse> by lazy {
+        MutableLiveData<ManagersSpecialResponse>()
     }
 
     fun observeManagerSpecials() = managerSpecialsObservable
@@ -22,8 +22,8 @@ class ManagerSpecialsViewModel @Inject constructor(
         disposable = repository.fetchManagerSpecials()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { managerSpecials ->
-                managerSpecialsObservable.value = managerSpecials.managerSpecials
+            .subscribe { managerSpecialsResponse ->
+                managerSpecialsObservable.value = managerSpecialsResponse
             }
     }
 }

@@ -1,6 +1,6 @@
 package com.stevechalker.shoppingapp.dagger
 
-import com.stevechalker.shoppingapp.ManagerSpecials.ManagerSpecialsActivity
+import com.stevechalker.shoppingapp.manager_specials.ManagerSpecialsActivity
 import dagger.Component
 import javax.inject.Singleton
 
