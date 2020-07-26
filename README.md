@@ -24,7 +24,6 @@ to have the Activity have the dependency instead of the view model.
 ## Improvements
 
 - UI needs massive cleanup. Need to to make sure views within each item do not overlap
-- 
 - Inject the ManagerSpecialsViewCalculator
 - Add tests in general, but especially for the ManagerSpecialsViewCalculator
 - Inject the ManagerSpecialsAdapter
