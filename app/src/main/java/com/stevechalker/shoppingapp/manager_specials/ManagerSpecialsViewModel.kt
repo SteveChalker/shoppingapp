@@ -26,4 +26,8 @@ class ManagerSpecialsViewModel @Inject constructor(
                 managerSpecialsObservable.value = managerSpecialsResponse
             }
     }
+
+    fun disposeObservable() {
+        disposable?.dispose()
+    }
 }

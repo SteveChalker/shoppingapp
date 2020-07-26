@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import com.stevechalker.shoppingapp.ManagerSpecialsApplication
 import com.stevechalker.shoppingapp.R
 import javax.inject.Inject
@@ -22,7 +24,9 @@ class ManagerSpecialsActivity : AppCompatActivity() {
 
         val managerSpecialsRecyclerView =
             findViewById<RecyclerView>(R.id.manager_Specials_recyclerView)
-        managerSpecialsRecyclerView.layoutManager = FlexboxLayoutManager(this)
+        val layoutManager = FlexboxLayoutManager(this)
+        layoutManager.justifyContent = JustifyContent.CENTER
+        managerSpecialsRecyclerView.layoutManager = layoutManager
 
         viewModel.observeManagerSpecials().observe(this, Observer { managerSpecialResponse ->
             val managerSpecialsList = managerSpecialResponse.managerSpecials.map {
@@ -40,5 +44,10 @@ class ManagerSpecialsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         viewModel.fetchManagerSpecials()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.disposeObservable()
     }
 }
